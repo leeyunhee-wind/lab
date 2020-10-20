@@ -1,26 +1,426 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+    <script>
+     $( document ).ready( function() {
+        var menuOffset = $( '.menu' ).offset();
+        $( window ).scroll( function() {
+          if ( $( document ).scrollTop() > menuOffset.top ) {
+            $( '.menu' ).addClass( 'menufixed' );
+          }
+          else {
+            $( '.menu' ).removeClass( 'menufixed' );
+          }
+        });
+      } );
+    </script>
+    <script>
+      $(function(){
+       var menuBtn = $("ul > li");    
+       menuBtn.find("a").click(function(){   
+        menuBtn.removeClass("active");    
+        $(this).parent().addClass("active"); 
+       })
+      })
+     </script>
+    
 <head>
     <meta charset="UTF-8">
     <title>yunhee portfolio</title>
 </head>
 
 <style>
-.about{background-color:lightcoral} 
-.skill{background-color:lightblue} 
-.work{background-color:lightseagreen} 
-.contact{background-color:lightslategray} 
+
+html, body {margin: 0;scroll-behavior: smooth}
+element{padding: 0; margin: 0; border: 0;}
+body{font-size: 100%;font-size:16px}
+img{vertical-align: top;}
+
+ul, ol{list-style: none;padding: 0; margin: 0;}
+a{text-decoration: none; color: inherit;}
+section{text-align:center;padding:20px 10px }
+.contact{background-color:rgb(235, 236, 236);height:500px;} 
+footer{background-color:rgb(236, 236, 236);height:100px;text-align:center;line-height:2;padding-top:30px}
+nav {width:100%;background-color:black;height:40px;text-align:center;z-index: 999;}
+nav li{color:white;font-size:16px;display:inline-block;width:120px;line-height:40px;}
+.active::before {content:'';height:15px;width:15px;border-radius:15px;background-color:red;display: block;position:absolute; margin:12px 0 0 10px}
+.menufixed {position: fixed;top: 0px;}
+h3{font-size:16px;}
+span.halfbg{background:linear-gradient(to top, lightcoral 50%, transparent 50%)}
+p span{text-decoration:underline;font-weight: bold;}
+.skill .bx li .spot{position:absolute;top:10px;right:0px;width:50%;}
+.skill .bx{text-align:left; }
+.skill .bx li{position:relative}
+.skill li.tit{font-size:18px;padding-bottom:5px}
+.skill li.tit1{font-size:18px;padding:20px 0 5px 0}
+.bar {float: left;height: 5px;margin-bottom: 18px; position: relative;width: 100%;z-index: 1;}
+.bar .inner1 {background: linear-gradient(
+            to right,
+            rgba(236, 202, 106) 10%,
+            rgb(236, 121, 106) 90%,
+            rgb(211, 208, 208) 10%,
+            rgb(202, 201, 201) 10%
+          );position: absolute;bottom: 0;left: 0px;top: -5px;}
+.bar .inner2 {background: linear-gradient(
+            to right,
+            rgba(236, 202, 106) 10%,
+            rgb(236, 121, 106) 70%,
+            rgb(211, 208, 208) 30%,
+            rgb(202, 201, 201) 30%
+          );position: absolute;bottom: 0;left: 0px;top: -5px;}
+.bar .inner3 {background: linear-gradient(
+            to right,
+            rgba(236, 202, 106) 10%,
+            rgb(236, 121, 106) 60%,
+            rgb(211, 208, 208) 40%,
+            rgb(202, 201, 201) 40%
+          );position: absolute;bottom: 0;left: 0px;top: -5px;}         
+.bar.pct-100 .inner2 {  -webkit-animation-duration: 2s;-webkit-animation-name: grow-100;right: 0%;}
+.bar.pct-100 .inner1 {  -webkit-animation-duration: 1s;-webkit-animation-name: grow-100;right: 0%;}
+.bar.pct-100 .inner3 {  -webkit-animation-duration: 3s;-webkit-animation-name: grow-100;right: 0%;}
+@-keyframes grow-100{from { right: 100%; }to   { right: 0%; }} 
+@-webkit-keyframes grow-100{from { right: 100%; }to   { right: 0%; }}
+
+/* slide */
+.port_imgbx{}
+.port_imgbx input[id*="slide"] {display:none;}
+	.port_imgbx .slidewrap {max-width:1200px;margin:0 auto;}
+	.port_imgbx .slidelist {white-space:nowrap;font-size:0;overflow:hidden;position:relative;}
+	.port_imgbx .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
+	.port_imgbx .slidelist > li > a {display:block;position:relative;}
+	.port_imgbx .slidelist > li > a img {width:100%;}
+	.port_imgbx .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+	
+	/* input에 체크되면 슬라이드 효과 */
+	.port_imgbx input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.port_imgbx input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	.port_imgbx input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+  .port_imgbx input[id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
+  .port_imgbx input[id="slide011"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.port_imgbx input[id="slide022"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	.port_imgbx input[id="slide033"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+  .port_imgbx input[id="slide0111"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.port_imgbx input[id="slide0222"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+  .port_imgbx input[id="slide0333"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+  .port_imgbx input[id="slide0444"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
+	.port_imgbx input[id="slide0555"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
+	.port_imgbx input[id="slide0666"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-500%);}
+
+	/* 페이징 */
+	.slide-pagelist {text-align:center;padding:0 20px 20px 20px;}
+	.slide-pagelist > li {display:inline-block;vertical-align:middle;}
+	.slide-pagelist > li > label {display:block;padding:8px 10px;border-radius:30px;background:#ccc;margin:10px 5px;cursor:pointer;}
+	.port_imgbx input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide04"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(4) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide011"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide022"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide033"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide0111"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide0222"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide0333"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide0444"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(4) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide0555"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(5) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide0666"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(6) > label {background:rgb(248, 13, 13);}
+  
+
+
+
+/* Mobile Device (가로폭 767px 이하) */
+@media all and (max-width:767px) {
+
+.about{background:  url('images/office-1500461_1920.png') center bottom fixed  ;background-repeat: no-repeat; height:200px;background-size:cover ;} 
+.skill{background-color:rgb(250, 243, 243);height:430px;} 
+.work{background-color:rgb(255, 255, 255);/*background:url('images/laptop-2558665_19201.png') center center fixed ;background-size:cover ;background-repeat: no-repeat;*/} 
+h2{font-size:24px;color:black;}
+.skill .innerr {margin:0 10%;}
+.skill .bx li .spot{display:none}
+.work .innerrr {margin:0 auto;width:340px;}
+.work .innerrr article{padding:30px 10px;border-bottom:1px dotted lightgray}
+.work .innerrr article .port_txt{letter-spacing: -1;}
+.work .innerrr article .port_txt p{position:relative;margin-left:70px;text-align:left;}
+.work .innerrr article .port_txt p span{font-size:16px;display:inline-block;line-height:1.2;text-decoration:none;}
+.work .innerrr article .port_txt p span b{font-size:13px;color:gray}
+.work .innerrr article .port_txt p span em{ position:absolute; top:-10px;left:-55px;font-size: 40px;font-style:normal;color:lightcoral}
+.work .innerrr article .port_imgbx img{width:100%}
+
+}
+
+/* Tablet (가로폭 768px 이상, 1023px 이하) */
+@media all and (min-width:768px) and (max-width:1023px) {
+/* 브라우저 가로폭이 768~1023px일때 적용될 css (태블릿) */
+
+.about{background:url('images/office-1500461_1920.png') center bottom fixed ;background-repeat: no-repeat; height:300px;background-size:cover; } 
+.skill{background-color:rgb(250, 243, 243);height:400px;} 
+.work{background-color:rgb(255, 255, 255);/*background:url('images/laptop-2558665_19201.png') center center fixed ;background-size:cover ;background-repeat: no-repeat; */} 
+h2{font-size:30px;color:black}
+.skill .innerr {margin:0 auto;width:700px;}
+.work .innerrr {margin:0 auto;width:700px;}
+.work .innerrr article{padding:30px 10px;border-bottom:1px dotted lightgray}
+.work .innerrr article .port_txt{letter-spacing: -1;}
+.work .innerrr article .port_txt p{position:relative;margin-left:220px;text-align:left;}
+.work .innerrr article .port_txt p span{font-size:20px;display:inline-block;line-height:1.2;text-decoration:none;}
+.work .innerrr article .port_txt p span b{font-size:12px;color:gray}
+.work .innerrr article .port_txt p span em{ position:absolute; top:-10px;left:-70px;font-size: 50px;font-style:normal;color:lightcoral}
+.work .innerrr article .port_imgbx img{width:70%}
+
+}
+
+/* PC Desktop (가로폭 1024 이상) */
+@media all and (min-width:1024px) {
+
+.about{background:url('images/office-1500461_1920.png') center bottom fixed ;background-size:cover ;background-repeat: no-repeat; height:300px;} 
+.skill{background-color:rgb(250, 243, 243);height:450px;} 
+.work{background-color:rgb(255, 255, 255);/*background:url('images/laptop-2558665_19201.png') center center fixed ;background-size:cover ;background-repeat: no-repeat;*/ } 
+h2{font-size:40px;color:black}
+.skill .innerr {margin:0 auto;width:1000px;}
+.work .innerrr {margin:0 auto;width:1000px;}
+.work .innerrr article{padding:30px 10px;border-bottom:1px dotted lightgray}
+.work .innerrr article .port_txt{letter-spacing: -1;}
+.work .innerrr article .port_txt p{position:relative;margin-left:220px;text-align:left;}
+.work .innerrr article .port_txt p span{font-size:20px;display:inline-block;line-height:1.2;text-decoration:none;}
+.work .innerrr article .port_txt p span b{font-size:12px;color:gray}
+.work .innerrr article .port_txt p span em{ position:absolute; top:-10px;left:-70px;font-size: 50px;font-style:normal;color:lightcoral}
+.work .innerrr article .port_imgbx img{width:70%}
+
+}
+
 </style>
 
 <div class="wrap">
-아 정말 만들어야되는건가 파일이 왜 일케 안올라가노
+    <section class="about"><h2>ABOUT</h2>
+        <p><span>UI,UX DESIGNER / WEB PUBLISHER</span><h3><span class="halfbg">간결한 UI와 편리한 UX를 만드는</span><br>디자인하는 퍼블리셔입니다</h3></p>
+    </section>
+      <nav class="menu"> <ul><li><a href="#skillanchor"  >SKILLS</a></li><li><a href="#workanchor" >WORKS</a></li><ul> </nav>
+    <section class="skill" id="skillanchor">
+      <h2>SKILLS</h2>
+      <div class="innerr" >
+        <ul class="bx">
+          <li class="tit"><span class="halfbg">디자인</span></li>
+          <li>PHOTOSHOP,ILLUSTRATOR 90%
+            <div class="spot">
+              <div class="bar pct-100"><div class="inner1"></div>    </div>
+              <div class="bar pct-100"><div class="inner2"></div>   </div>
+            </div> 
+          </li>
+          <li>INDESIGN 70%</li>
+          <li class="tit1"><span class="halfbg">퍼블리싱</span></li>
+          <li>HTML5, CSS3 90%
+            <div class="spot">
+              <div class="bar pct-100"><div class="inner1"></div></div>
+              <div class="bar pct-100"><div class="inner1"></div></div>
+              <div class="bar pct-100"><div class="inner3"></div></div>
+            </div>
+          </li>
+          <li>반응형, 크로스 브라우징, 웹접근성 90%</li>
+          <li> JavaScript, jQuery 60%</li>
+          <li class="tit1"><span class="halfbg"> TOOLS</span></li>
+          <li>VS CODE/SPRING/ECLIPSE/GIT PAGE/XD/ZEPLIN</li>
+        </ul>
+        
+      </div>
+    </section>
+    <section class="work" id="workanchor">
+      <h2>WORK</h2>
+      <div class="innerrr" >
+        <article>
+          <div class="port_txt">
+            <p>
+             <span> <em>01</em>KCAR<br><b>기여도: 100%(유지보수)</b></span>
+            </p>
+          </div>
+          
+          <!-- slide -->
+          <div class="port_imgbx">
+            <input type="radio" name="slide" id="slide01" checked>
+            <input type="radio" name="slide" id="slide02">
+            <input type="radio" name="slide" id="slide03">
+            <input type="radio" name="slide" id="slide04">
+            
+            <div class="slidewrap">
+              <ul class="slidelist">
+                <!-- 슬라이드 영역 -->
+                <li class="slideitem">
+                  <a>               
+                    <img src="../yunhee_portfolio/images/kcar_index.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>
+                    <img src="../yunhee_portfolio/images/kcar_sub.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>  <img src="../yunhee_portfolio/images/kcar_list.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a> <img src="../yunhee_portfolio/images/kcar_exindex.png">
+                  </a>
+                </li>
 
-<section class="about"></section>
-<section class="skill"></section>
-<section class="work"></section>
-<section class="contact"></section>
-<footer></footer>
+               
 
+              </ul>
+              <!-- 페이징 -->
+              <ul class="slide-pagelist">
+                <li><label for="slide01"></label></li>
+                <li><label for="slide02"></label></li>
+                <li><label for="slide03"></label></li>
+                <li><label for="slide04"></label></li>
+              </ul>
+            </div>
+        </div>
+        <!-- //slide -->
+        </article>
+        <article>
+          <div class="port_txt">
+             <p>
+              <span> <em>02</em>ENCAR<br><b>기여도: 90%(구축) / 100%(유지보수)</b></span>
+            </p>
+           </div>
+           <!-- slide -->
+          <div class="port_imgbx">
+            <input type="radio" name="slide1" id="slide011" checked>
+            <input type="radio" name="slide1" id="slide022">
+            <input type="radio" name="slide1" id="slide033">
+            
+            <div class="slidewrap">
+              <ul class="slidelist">
+                <!-- 슬라이드 영역 -->
+                <li class="slideitem">
+                  <a>               
+                    <img src="../yunhee_portfolio/images/encar_index.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>
+                    <img src="../yunhee_portfolio/images/encar_sub.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>  <img src="../yunhee_portfolio/images/encar_detail.png">
+                  </a>
+                </li>
+                
+
+            
+              </ul>
+              <!-- 페이징 -->
+              <ul class="slide-pagelist">
+                <li><label for="slide011"></label></li>
+                <li><label for="slide022"></label></li>
+                <li><label for="slide033"></label></li>
+              
+              </ul>
+            </div>
+          </div>
+          <!-- //slide -->
+         </article>
+         <article>
+          <div class="port_txt">
+             <p>
+              <span> <em>03</em>GROBAL ENCAR<br><b>기여도: 90%(구축) / 100%(유지보수)</b></span>
+            </p>
+           </div>
+           <div class="port_imgbx">
+            <img src="../yunhee_portfolio/images/encar_global.png"  alt="" >
+           </div>
+         </article>
+         <article>
+          <div class="port_txt">
+             <p>
+              <span> <em>04</em>ENCAR AUCTION<br><b>기여도: 50%(유지보수)</b></span>
+            </p>
+           </div>
+           <div class="port_imgbx">
+            <img src="../yunhee_portfolio/images/kcar_auction.png"  alt="" >
+           </div>
+         </article>
+         <article>
+          <div class="port_txt">
+             <p>
+              <span> <em>05</em>AUTOWINI<br><b>기여도: 90%(구축) / 100%(유지보수)</b></span>
+            </p>
+           </div>
+           <div class="port_imgbx">
+            <img src="../yunhee_portfolio/images/autowini_index.png"  alt="" >
+           </div>
+         </article>
+         <article>
+          <div class="port_txt">
+             <p>
+              <span> <em>06</em>PARTSWINI<br><b>기여도: 100%(유지보수)</b></span>
+            </p>
+           </div>
+           <div class="port_imgbx">
+            <img src="../yunhee_portfolio/images/partswini_index.png"  alt="" >
+           </div>
+         </article>
+         <article>
+          <div class="port_txt">
+             <p>
+              <span> <em>07</em>BEFORE 2010<br><b>기여도: 100%(구축) / 100%(유지보수)</b></span>
+            </p>
+           </div>
+            <!-- slide -->
+          <div class="port_imgbx">
+            <input type="radio" name="slide2" id="slide0111" checked>
+            <input type="radio" name="slide2" id="slide0222">
+            <input type="radio" name="slide2" id="slide0333">
+            <input type="radio" name="slide2" id="slide0444">
+            <input type="radio" name="slide2" id="slide0555">
+            <input type="radio" name="slide2" id="slide0666">
+            
+            <div class="slidewrap">
+              <ul class="slidelist">
+                <!-- 슬라이드 영역 -->
+                <li class="slideitem">
+                  <a>               
+                    <img src="../yunhee_portfolio/images/before2010_1.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>
+                    <img src="../yunhee_portfolio/images/before2010_2.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>  <img src="../yunhee_portfolio/images/before2010_3.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>  <img src="../yunhee_portfolio/images/before2010_4.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>  <img src="../yunhee_portfolio/images/before2010_5.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>  <img src="../yunhee_portfolio/images/before2010_6.png">
+                  </a>
+                </li>
+              </ul>
+              <!-- 페이징 -->
+              <ul class="slide-pagelist">
+                <li><label for="slide0111"></label></li>
+                <li><label for="slide0222"></label></li>
+                <li><label for="slide0333"></label></li>
+                <li><label for="slide0444"></label></li>
+                <li><label for="slide0555"></label></li>
+                <li><label for="slide0666"></label></li>
+              
+              </ul>
+            </div>
+          </div>
+          <!-- //slide -->
+         </article>
+      </div>
+    
+    </section>
+    <footer>email: emmer@naver.com<br>Copyright © 2020 yunhee All rights reserved. </footer>
 </div>
