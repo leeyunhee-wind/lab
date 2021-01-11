@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   
-    <script>
+    <script>/*메뉴 상단에 붙이기*/
      $( document ).ready( function() {
         var menuOffset = $( '.menu' ).offset();
         $( window ).scroll( function() {
@@ -16,7 +16,7 @@
         });
       } );
     </script>
-    <script>
+    <script>/*메뉴 활성화*/
       $(function(){
        var menuBtn = $("ul > li");    
        menuBtn.find("a").click(function(){   
@@ -33,9 +33,9 @@
 
 <style>
 
-html, body {margin: 0;scroll-behavior: smooth}
+html, body {margin: 0;scroll-behavior: smooth}/*메뉴 책갈피 시 해당부분은 부드럽게 움직여준다*/
 element{padding: 0; margin: 0; border: 0;}
-body{font-size: 100%;font-size:16px}
+body{font-size: 100%;font-size:16px;font-family:  "맑은 고딕", "Malgun Gothic", "돋움", dotum, sans-serif;}
 img{vertical-align: top;}
 
 ul, ol{list-style: none;padding: 0; margin: 0;}
