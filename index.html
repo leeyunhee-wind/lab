@@ -94,6 +94,12 @@ p span{text-decoration:underline;font-weight: bold;}
 	.port_imgbx .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
 	
 	/* input에 체크되면 슬라이드 효과 */
+  .port_imgbx input[id="slide11"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.port_imgbx input[id="slide22"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	.port_imgbx input[id="slide33"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+  .port_imgbx input[id="slide44"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
+  .port_imgbx input[id="slide55"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
+
 	.port_imgbx input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
 	.port_imgbx input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
 	.port_imgbx input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
@@ -112,6 +118,12 @@ p span{text-decoration:underline;font-weight: bold;}
 	.slide-pagelist {text-align:center;padding:0 20px 20px 20px;}
 	.slide-pagelist > li {display:inline-block;vertical-align:middle;}
 	.slide-pagelist > li > label {display:block;padding:8px 10px;border-radius:30px;background:#ccc;margin:10px 5px;cursor:pointer;}
+  .port_imgbx input[id="slide11"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide22"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:rgb(248, 13, 13);}
+	.port_imgbx input[id="slide33"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide44"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(4) > label {background:rgb(248, 13, 13);}
+  .port_imgbx input[id="slide55"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(5) > label {background:rgb(248, 13, 13);}
+
 	.port_imgbx input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:rgb(248, 13, 13);}
 	.port_imgbx input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:rgb(248, 13, 13);}
 	.port_imgbx input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:rgb(248, 13, 13);}
@@ -226,10 +238,68 @@ h2{font-size:40px;color:black}
     <section class="work" id="workanchor">
       <h2>WORK</h2>
       <div class="innerrr" >
+        <!--20210727-->
         <article>
           <div class="port_txt">
             <p>
-             <span> <em>01</em>KCAR<br><b>기여도: 60%(유지보수)</b></span>
+             <span> <em>01</em>웹사이트 및 신규 앱(PC, MOBILE)<br><b>기여도-퍼블리싱+디자인: 100%(구축) - 유링크 회사 사이트(빌더+하드코딩), 부산산업단지 메인작업, 마켓앱</b></span>
+            </p>
+          </div>
+          
+          <!-- slide -->
+          <div class="port_imgbx">
+            <input type="radio" name="slide0" id="slide11" checked>
+            <input type="radio" name="slide0" id="slide22">
+            <input type="radio" name="slide0" id="slide33">
+            <input type="radio" name="slide0" id="slide44">
+            <input type="radio" name="slide0" id="slide55">
+            
+            <div class="slidewrap">
+              <ul class="slidelist">
+                <!-- 슬라이드 영역 -->
+                <li class="slideitem">
+                  <a>               
+                    <img src="./images/ict_ulink.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a>
+                    <img src="./images/ict_busan.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a> <img src="./images/ict_m_market.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a> <img src="./images/ict_m_ulink.png">
+                  </a>
+                </li>
+                <li class="slideitem">
+                  <a> <img src="./images/ict_m_busan.png">
+                  </a>
+                </li>
+
+               
+
+              </ul>
+              <!-- 페이징 -->
+              <ul class="slide-pagelist">
+                <li><label for="slide11"></label></li>
+                <li><label for="slide22"></label></li>
+                <li><label for="slide33"></label></li>
+                <li><label for="slide44"></label></li>
+                <li><label for="slide55"></label></li>
+              </ul>
+            </div>
+        </div>
+        <!-- //slide -->
+        </article>
+        <!--//20210727-->
+        <article>
+          <div class="port_txt">
+            <p>
+             <span> <em>02</em>KCAR(PC, MOBILE)<br><b>기여도-퍼블리싱: 60%(유지보수)</b></span>
             </p>
           </div>
           
@@ -279,7 +349,7 @@ h2{font-size:40px;color:black}
         <article>
           <div class="port_txt">
              <p>
-              <span> <em>02</em>SK ENCAR / 직영<br><b>기여도: 50%(구축) / 60%(유지보수)</b></span>
+              <span> <em>03</em>SK ENCAR / 직영(PC, MOBILE)<br><b>기여도-퍼블리싱+디자인: 50%(구축) / 60%(유지보수)</b></span>
             </p>
            </div>
            <!-- slide -->
@@ -323,7 +393,7 @@ h2{font-size:40px;color:black}
          <article>
           <div class="port_txt">
              <p>
-              <span> <em>03</em>GROBAL ENCAR<br><b>기여도: 100%(구축) / 100%(유지보수)</b></span>
+              <span> <em>04</em>GROBAL ENCAR<br><b>기여도-퍼블리싱+디자인: 100%(구축) / 100%(유지보수)</b></span>
             </p>
            </div>
            <div class="port_imgbx">
@@ -333,7 +403,7 @@ h2{font-size:40px;color:black}
          <article>
           <div class="port_txt">
              <p>
-              <span> <em>04</em>KCAR AUCTION<br><b>기여도: 50%(유지보수)</b></span>
+              <span> <em>05</em>KCAR AUCTION<br><b>기여도-퍼블리싱+디자인: 50%(유지보수)</b></span>
             </p>
            </div>
            <div class="port_imgbx">
@@ -343,7 +413,7 @@ h2{font-size:40px;color:black}
          <article>
           <div class="port_txt">
              <p>
-              <span> <em>05</em>AUTOWINI<br><b>기여도: 70%(구축) / 100%(유지보수)</b></span>
+              <span> <em>06</em>AUTOWINI<br><b>기여도-퍼블리싱+디자인: 70%(구축) / 100%(유지보수)</b></span>
             </p>
            </div>
            <div class="port_imgbx">
@@ -353,7 +423,7 @@ h2{font-size:40px;color:black}
          <article>
           <div class="port_txt">
              <p>
-              <span> <em>06</em>PARTSWINI<br><b>기여도: 100%(구축) / 100%(유지보수)</b></span>
+              <span> <em>07</em>PARTSWINI<br><b>기여도-퍼블리싱+디자인: 100%(구축) / 100%(유지보수)</b></span>
             </p>
            </div>
            <div class="port_imgbx">
@@ -363,7 +433,7 @@ h2{font-size:40px;color:black}
          <article>
           <div class="port_txt">
              <p>
-              <span> <em>07</em>BEFORE 2010<br><b>기여도: 100%(구축) / 100%(유지보수)</b></span>
+              <span> <em>08</em>BEFORE 2010<br><b>기여도-퍼블리싱+디자인: 100%(구축) / 100%(유지보수)</b></span>
             </p>
            </div>
             <!-- slide -->
